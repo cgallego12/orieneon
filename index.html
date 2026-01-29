@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="public/logo.png" type="image/png">
+    <title>Orieneon - Avisos de Neonflex Personalizados</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="public/logo.png" alt="Orieneon Logo" class="logo-img">
+            </div>
+            <p class="tagline">Avisos de Neonflex Personalizados</p>
+        </div>
+        <nav id="main-nav">
+            <ul>
+                <li><a href="#" class="active" data-page="home">Inicio</a></li>
+                <li><a href="#" data-page="catalog">Catálogo</a></li>
+                <li><a href="#" data-page="custom">Personalizar</a></li>
+                <li><a href="#" data-page="contact">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="nav-buttons">
+            <button id="login-button"><i class="fas fa-user"></i> Iniciar Sesión</button>
+            <button id="cart-button"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></button>
+        </div>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <main>
+        <!-- Página de Inicio -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h2>Ilumina tu espacio con avisos personalizados de Neonflex</h2>
+                    <p>Diseños únicos que transforman cualquier ambiente</p>
+                    <div class="hero-buttons">
+                        <button class="btn primary" id="view-catalog">Ver Catálogo</button>
+                        <button class="btn secondary" id="customize-now">Personalizar Ahora</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-palette feature-icon"></i>
+                    <h3>Diseño Personalizado</h3>
+                    <p>Crea avisos únicos con tus propios diseños, colores y tamaños.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt feature-icon"></i>
+                    <h3>Bajo Consumo</h3>
+                    <p>Nuestros avisos de neonflex son ecológicos y de bajo consumo energético.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt feature-icon"></i>
+                    <h3>Durabilidad</h3>
+                    <p>Materiales de alta calidad que garantizan años de funcionamiento perfecto.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-truck feature-icon"></i>
+                    <h3>Envío Seguro</h3>
+                    <p>Entregamos tus avisos con embalaje protector especial en todo el país.</p>
+                </div>
+            </div>
+
+            <div class="popular-section">
+                <h2>Más Populares</h2>
+                <div class="popular-products" id="popular-products">
+                    <!-- Popular products will be loaded here from JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Página de Catálogo -->
+        <section id="catalog" class="page">
+            <h2>Catálogo de Avisos de Neonflex</h2>
+            
+            <div class="filter-section">
+                <div class="search-box">
+                    <input type="text" id="search-products" placeholder="Buscar productos...">
+                    <button id="search-button"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="category-filters">
+                    <button class="filter-btn active" data-category="all">Todos</button>
+                    <button class="filter-btn" data-category="letras">Letras</button>
+                    <button class="filter-btn" data-category="figuras">Figuras</button>
+                    <button class="filter-btn" data-category="logos">Logos</button>
+                    <button class="filter-btn" data-category="decorativo">Decorativos</button>
+                </div>
+                <div class="sort-options">
+                    <label for="sort-select">Ordenar por:</label>
+                    <select id="sort-select">
+                        <option value="popular">Más populares</option>
+                        <option value="price-low">Precio: Menor a Mayor</option>
+                        <option value="price-high">Precio: Mayor a Menor</option>
+                        <option value="newest">Más recientes</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <!-- Los productos se cargarán aquí desde JavaScript -->
+            </div>
+
+            <div class="pagination" id="pagination">
+                <!-- La paginación se agregará aquí desde JavaScript -->
+            </div>
+        </section>
+
+        <!-- Página de Personalización -->
+        <section id="custom" class="page">
+            <h2>Personaliza Tu Aviso de Neonflex</h2>
+            
+            <div class="custom-container">
+                <div class="custom-preview">
+                    <div class="preview-box">
+                        <div id="custom-preview-display">
+                            <p id="preview-text">Tu texto aquí</p>
+                        </div>
+                    </div>
+                    <p class="preview-note">Vista previa aproximada</p>
+                </div>
+                
+                <div class="custom-form">
+                    <form id="customization-form">
+                        <div class="form-group">
+                            <label for="custom-text">Texto o Frase:</label>
+                            <input type="text" id="custom-text" placeholder="Ingresa el texto de tu aviso" maxlength="30">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="custom-font">Estilo de Letra:</label>
+                            <select id="custom-font">
+                                <option value="Arial">Clásico</option>
+                                <option value="Brush Script MT">Elegante</option>
+                                <option value="Impact">Negrita</option>
+                                <option value="Courier New">Retro</option>
+                                <option value="Pacifico">Moderno</option>
+                                <option value="'Dancing Script', cursive">Neon Handwritten</option>
+                            </select>
+                            <div class="font-example" id="font-example">
+                                <img src="logo.png" alt="Neon Handwritten Font Example" class="hidden font-preview" data-font="'Dancing Script', cursive">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="custom-color">Color:</label>
+                            <div class="color-options">
+                                <div class="color-option" data-color="#ff0000" style="background-color: #ff0000;"></div>
+                                <div class="color-option" data-color="#0000ff" style="background-color: #0000ff;"></div>
+                                <div class="color-option" data-color="#00ff00" style="background-color: #00ff00;"></div>
+                                <div class="color-option" data-color="#ffff00" style="background-color: #ffff00;"></div>
+                                <div class="color-option" data-color="#ff00ff" style="background-color: #ff00ff;"></div>
+                                <div class="color-option" data-color="#00ffff" style="background-color: #00ffff;"></div>
+                                <div class="color-option" data-color="#ffffff" style="background-color: #ffffff;"></div>
+                            </div>
+                            <input type="hidden" id="custom-color" value="#ff0000">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="custom-size">Tamaño (cm):</label>
+                            <div class="size-inputs">
+                                <div>
+                                    <label for="custom-width">Ancho:</label>
+                                    <input type="number" id="custom-width" value="50" min="20" max="200">
+                                </div>
+                                <div>
+                                    <label for="custom-height">Alto:</label>
+                                    <input type="number" id="custom-height" value="30" min="10" max="150">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="custom-backing">Fondo:</label>
+                            <select id="custom-backing">
+                                <option value="none">Sin fondo</option>
+                                <option value="acrylic">Acrílico Transparente</option>
+                                <option value="wood">Madera</option>
+                                <option value="metal">Metal</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Opciones adicionales:</label>
+                            <div class="checkbox-options">
+                                <label>
+                                    <input type="checkbox" id="custom-remote"> Control remoto (+$15)
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="custom-dimmer"> Regulador de intensidad (+$10)
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="price-box">
+                            <span>Precio estimado:</span>
+                            <span id="custom-price">$120</span>
+                        </div>
+                        
+                        <button type="submit" class="btn primary">Agregar al Carrito</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Página de Contacto -->
+        <section id="contact" class="page">
+            <h2>Contáctanos</h2>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Dirección</h3>
+                        <p>Carrera 58 #59 a 29 Rionegro antioquia</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Teléfono</h3>
+                        <p>+57 3015133112</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>info@orieneon.com</p>
+                    </div>
+                    <div class="contact-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Horario</h3>
+                        <p>Lun - Vie: 9am - 6pm<br>Sáb: 10am - 2pm</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name">Nombre:</label>
+                            <input type="text" id="contact-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email:</label>
+                            <input type="email" id="contact-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Asunto:</label>
+                            <input type="text" id="contact-subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Mensaje:</label>
+                            <textarea id="contact-message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn primary">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Barra lateral del carrito -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Carrito de Compras</h3>
+            <button id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <!-- Los artículos del carrito se agregarán aquí desde JavaScript -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-amount">$0.00</span>
+            </div>
+            <button id="checkout-button" class="btn primary">Proceder al Pago</button>
+            <button id="clear-cart" class="btn secondary">Vaciar Carrito</button>
+        </div>
+    </div>
+
+    <!-- Modal de Inicio de Sesión / Registro -->
+    <div id="auth-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-form="login-form">Iniciar Sesión</button>
+                <button class="auth-tab" data-form="register-form">Registrarse</button>
+            </div>
+            
+            <form id="login-form" class="auth-form active">
+                <div class="form-group">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña:</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <div class="form-group remember-me">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Recordarme</label>
+                </div>
+                <button type="submit" class="btn primary">Iniciar Sesión</button>
+                <p class="form-link">¿Olvidaste tu contraseña?</p>
+            </form>
+            
+            <form id="register-form" class="auth-form">
+                <div class="form-group">
+                    <label for="register-name">Nombre:</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email:</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Contraseña:</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm">Confirmar Contraseña:</label>
+                    <input type="password" id="register-confirm" required>
+                </div>
+                <div class="form-group terms">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">Acepto los términos y condiciones</label>
+                </div>
+                <button type="submit" class="btn primary">Registrarse</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Detalle del Producto -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content product-modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="product-detail">
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="modal-product-image" src="" alt="Producto">
+                    </div>
+                    <div class="thumbnail-images" id="thumbnail-images">
+
+                        <!-- Las miniaturas se agregarán aquí desde JavaScript -->
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h2 id="modal-product-name"></h2>
+                    <div class="product-price">
+                        <span id="modal-product-price"></span>
+                        <span id="modal-product-old-price" class="old-price"></span>
+                    </div>
+                    <div class="product-rating">
+                        <div class="stars" id="modal-product-stars"></div>
+                        <span id="modal-product-reviews"></span>
+                    </div>
+                    <p id="modal-product-description"></p>
+                    
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label>Color:</label>
+                            <div class="color-options" id="modal-color-options">
+                                <!-- Las opciones de color se agregarán aquí desde JavaScript -->
+                            </div>
+                        </div>
+                        <div class="option-group">
+                            <label>Tamaño:</label>
+                            <div class="size-options" id="modal-size-options">
+
+                                <!-- Las opciones de tamaño se agregarán aquí desde JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="product-quantity">
+                        <label>Cantidad:</label>
+                        <div class="quantity-selector">
+                            <button id="decrease-quantity">-</button>
+                            <input type="number" id="product-quantity" value="1" min="1" max="10">
+                            <button id="increase-quantity">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button id="add-to-cart" class="btn primary"><i class="fas fa-shopping-cart"></i> Agregar al Carrito</button>
+                        <button id="add-to-wishlist" class="btn secondary"><i class="far fa-heart"></i></button>
+                    </div>
+                    
+                    <div class="product-meta">
+                        <p><strong>Categoría:</strong> <span id="modal-product-category"></span></p>
+                        <p><strong>Disponibilidad:</strong> <span id="modal-product-availability"></span></p>
+                        <p><strong>Tiempo de entrega:</strong> 5-7 días hábiles</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fondo de superposición -->
+    <div id="overlay"></div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Orieneon</h3>
+                <p>Expertos en avisos personalizados de Neonflex para hogar, negocio y eventos especiales.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Catálogo</a></li>
+                    <li><a href="#">Personalizar</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Ayuda</h4>
+                <ul>
+                    <li><a href="#">Cómo Ordenar</a></li>
+                    <li><a href="#">Políticas de Envío</a></li>
+                    <li><a href="#">Devoluciones</a></li>
+                    <li><a href="#">Garantía</a></li>
+                    <li><a href="#">Cuidado del Producto</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contacto</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> Carrera 58#59a29 Rionegro antioquia</li>
+                    <li><i class="fas fa-phone"></i> +57 3015133112</li>
+                    <li><i class="fas fa-envelope"></i> info@orieneon.com</li>
+                </ul>
+                <div class="newsletter">
+                    <h4>Suscríbete al Newsletter</h4>
+                    <form id="newsletter-form">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Orieneon - Todos los derechos reservados</p>
+            <div class="footer-links">
+                <a href="#">Términos y Condiciones</a>
+                <a href="#">Política de Privacidad</a>
+            </div>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa"></i>
+                <i class="fab fa-cc-mastercard"></i>
+                <i class="fab fa-cc-amex"></i>
+                <i class="fab fa-cc-paypal"></i>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+
+    <a href="https://wa.me/573015133112?text=Hola,%20estoy%20interesado%20en%20sus%20avisos%20de%20neonflex" 
+       class="whatsapp-float" 
+       target="_blank"
+       title="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
